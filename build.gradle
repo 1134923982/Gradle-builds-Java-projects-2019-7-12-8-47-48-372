@@ -1,0 +1,31 @@
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building an application
+    id 'application'
+
+    id 'idea'
+}
+
+repositories {
+    maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    mavenCentral()
+    jcenter{url "http://jcenter.bintray.com/"}
+}
+
+dependencies {
+    // This dependency is found on compile classpath of this component and consumers.
+    implementation 'com.google.guava:guava:27.0.1-jre'
+    testCompile "org.mockito:mockito-core:1.+"
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+    testCompile "org.easytesting:fest-assert-core:2.0M10"
+}
+task hello {
+    doLast {
+        println 'This is a Gradle Project'
+    }
+}
+
+mainClassName = 'gradle_test.App'
